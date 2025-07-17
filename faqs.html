@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs | Taqbit Labs</title>
+    <!-- Same head content as index.html -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+       
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="quantum-pattern">
+    <!-- Navigation (same as index.html) -->
+   <div id="header-placeholder"></div>
+    <!-- FAQ Hero -->
+    <section class="hero-gradient min-h-[40vh] flex items-center pt-28 pb-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6 taqbit-gradient-text">
+                Frequently Asked Questions
+            </h1>
+            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed">
+                Find answers to common questions about our quantum security solutions and services
+            </p>
+        </div>
+    </section>
+
+    <!-- FAQ Categories -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button class="category-btn px-6 py-2 rounded-full font-medium taqbit-primary text-white active" data-category="all">
+                    All Questions
+                </button>
+                <button class="category-btn px-6 py-2 rounded-full font-medium bg-gray-200 text-gray-700 hover:bg-gray-300" data-category="academy">
+                    Quantum Academy
+                </button>
+                <button class="category-btn px-6 py-2 rounded-full font-medium bg-gray-200 text-gray-700 hover:bg-gray-300" data-category="products">
+                    Products
+                </button>
+                <button class="category-btn px-6 py-2 rounded-full font-medium bg-gray-200 text-gray-700 hover:bg-gray-300" data-category="security">
+                    Security
+                </button>
+                <button class="category-btn px-6 py-2 rounded-full font-medium bg-gray-200 text-gray-700 hover:bg-gray-300" data-category="general">
+                    General
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Content -->
+    <section class="py-12 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Academy Questions -->
+            <div class="mb-16" data-category="academy">
+                <h2 class="text-2xl font-bold text-gray-900 mb-8 pb-2 border-b border-gray-200 taqbit-text-primary">
+                    Quantum Academy Questions
+                </h2>
+                <div class="space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item p-6 rounded-lg" onclick="toggleFAQ(this)">
+                        <div class="faq-question flex justify-between items-center">
+                            <h3 class="text-lg font-semibold text-gray-900">What are the prerequisites for Quantum Cryptography Fundamentals?</h3>
+                            <svg class="faq-toggle w-6 h-6 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+                        <div class="faq-answer mt-4 text-gray-600">
+                            <p>Our Quantum Cryptography Fundamentals course requires basic knowledge of classical cryptography concepts and linear algebra. Familiarity with Python programming is helpful but not mandatory. We provide preparatory materials for students who need to brush up on these topics before starting the course.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item p-6 rounded-lg" onclick="toggleFAQ(this)">
+                        <div class="faq-question flex justify-between items-center">
+                            <h3 class="text-lg font-semibold text-gray-900">Are your certifications recognized in the industry?</h3>
+                            <svg class="faq-toggle w-6 h-6 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+                        <div class="faq-answer mt-4 text-gray-600">
+                            <p>Yes, our certifications are recognized by leading organizations in quantum technology and cybersecurity. We've partnered with industry leaders and academic institutions to ensure our certifications meet the highest standards. Many of our graduates have gone on to quantum security roles at major tech companies, government agencies, and research institutions.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item p-6 rounded-lg" onclick="toggleFAQ(this)">
+                        <div class="faq-question flex justify-between items-center">
+                            <h3 class="text-lg font-semibold text-gray-900">Can I access course materials after completion?</h3>
+                            <svg class="faq-toggle w-6 h-6 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+                        <div class="faq-answer mt-4 text-gray-600">
+                            <p>Yes, students retain access to all course materials for 12 months after completion. Additionally, we provide downloadable versions of key resources. For our certification programs, we offer ongoing access to updated materials as quantum security standards evolve.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product Questions -->
+            <div class="mb-16" data-category="products">
+                <h2 class="text-2xl font-bold text-gray-900 mb-8 pb-2 border-b border-gray-200 taqbit-text-secondary">
+                    Product Questions
+                </h2>
+                <div class="space-y-4">
+                    <!-- FAQ Item 4 -->
+                    <div class="faq-item p-6 rounded-lg" onclick="toggleFAQ(this)">
+                        <div class="faq-question flex justify-between items-center">
+                            <h3 class="text-lg font-semibold text-gray-900">How does your QKD system integrate with existing network infrastructure?</h3>
+                            <svg class="faq-toggle w-6 h-6 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+                        <div class="faq-answer mt-4 text-gray-600">
+                            <p>Our Quantum Key Distribution (QKD) systems are designed for seamless integration with existing network infrastructure. They operate as standalone units that can be deployed alongside your current encryption devices. We provide comprehensive API documentation and integration support for all major network environments.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 5 -->
+                    <div class="faq-item p-6 rounded-lg" onclick="toggleFAQ(this)">
+                        <div class="faq-question flex justify-between items-center">
+                            <h3 class="text-lg font-semibold text-gray-900">What's the typical deployment timeline for enterprise solutions?</h3>
+                            <svg class="faq-toggle w-6 h-6 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+                        <div class="faq-answer mt-4 text-gray-600">
+                            <p>Deployment timelines vary based on network complexity, but most enterprise installations are completed within 4-6 weeks. This includes:</p>
+                            <ul class="list-disc pl-5 mt-2 space-y-1">
+                                <li>Initial assessment and planning (1 week)</li>
+                                <li>Hardware installation (1-2 weeks)</li>
+                                <li>Integration and testing (2 weeks)</li>
+                                <li>Staff training and handover (1 week)</li>
+                            </ul>
+                            <p class="mt-2">We offer accelerated deployment options for urgent security needs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Security Questions -->
+            <div class="mb-16" data-category="security">
+                <h2 class="text-2xl font-bold text-gray-900 mb-8 pb-2 border-b border-gray-200 taqbit-text-primary">
+                    Security Questions
+                </h2>
+                <div class="space-y-4">
+                    <!-- FAQ Item 6 -->
+                    <div class="faq-item p-6 rounded-lg" onclick="toggleFAQ(this)">
+                        <div class="faq-question flex justify-between items-center">
+                            <h3 class="text-lg font-semibold text-gray-900">How soon should organizations transition to quantum-safe cryptography?</h3>
+                            <svg class="faq-toggle w-6 h-6 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+                        <div class="faq-answer mt-4 text-gray-600">
+                            <p>The transition to quantum-safe cryptography should begin immediately for most organizations handling sensitive data with long-term confidentiality requirements. NIST recommends starting migration planning now, with full implementation within 5-10 years. However, organizations in finance, healthcare, government, and critical infrastructure should prioritize this transition due to the "harvest now, decrypt later" threat.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 7 -->
+                    <div class="faq-item p-6 rounded-lg" onclick="toggleFAQ(this)">
+                        <div class="faq-question flex justify-between items-center">
+                            <h3 class="text-lg font-semibold text-gray-900">What's the difference between QKD and post-quantum cryptography?</h3>
+                            <svg class="faq-toggle w-6 h-6 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+                        <div class="faq-answer mt-4 text-gray-600">
+                            <p>Quantum Key Distribution (QKD) uses quantum physics principles to securely distribute encryption keys, providing information-theoretic security. Post-quantum cryptography refers to classical cryptographic algorithms that are resistant to quantum computer attacks. While QKD offers stronger security guarantees, post-quantum cryptography is often easier to deploy. Many organizations implement both for defense-in-depth quantum security.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- General Questions -->
+            <div class="mb-16" data-category="general">
+                <h2 class="text-2xl font-bold text-gray-900 mb-8 pb-2 border-b border-gray-200 taqbit-text-secondary">
+                    General Questions
+                </h2>
+                <div class="space-y-4">
+                    <!-- FAQ Item 8 -->
+                    <div class="faq-item p-6 rounded-lg" onclick="toggleFAQ(this)">
+                        <div class="faq-question flex justify-between items-center">
+                            <h3 class="text-lg font-semibold text-gray-900">Where are Taqbit Labs facilities located?</h3>
+                            <svg class="faq-toggle w-6 h-6 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+                        <div class="faq-answer mt-4 text-gray-600">
+                            <p>Our headquarters and primary research facility are in Zurich, Switzerland. We also have regional offices in Boston, Singapore, and Tel Aviv. Our Quantum Academy training programs are available globally through our online platform, with in-person sessions at our facilities and partner locations worldwide.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 9 -->
+                    <div class="faq-item p-6 rounded-lg" onclick="toggleFAQ(this)">
+                        <div class="faq-question flex justify-between items-center">
+                            <h3 class="text-lg font-semibold text-gray-900">How can I contact customer support?</h3>
+                            <svg class="faq-toggle w-6 h-6 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+                        <div class="faq-answer mt-4 text-gray-600">
+                            <p>Our customer support team is available 24/7 through multiple channels:</p>
+                            <ul class="list-disc pl-5 mt-2 space-y-1">
+                                <li>Email: support@taqbitlabs.com</li>
+                                <li>Phone: +1 (800) 555-QUANT (78268)</li>
+                                <li>Live chat via our website</li>
+                                <li>Dedicated support portal for enterprise clients</li>
+                            </ul>
+                            <p class="mt-2">Average response time is under 2 hours for critical issues.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Still Have Questions -->
+    <section class="py-20 taqbit-gradient-bg">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold text-white mb-6">Still have questions?</h2>
+            <p class="text-gray-200 max-w-2xl mx-auto mb-8">Our quantum security experts are ready to help with any additional questions you may have.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-gray-900 bg-white hover:bg-gray-100 transition-all">
+                    Contact Support
+                </a>
+                <a href="#" class="inline-flex items-center px-6 py-3 border border-white text-base font-medium rounded-md shadow-sm text-white bg-transparent hover:bg-white hover:bg-opacity-10 transition-all">
+                    Schedule Consultation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (same as index.html) -->
+<div id="footer-placeholder"></div>
+    <script>
+
+
+fetch('header.html').then(res => res.text()).then(data => {
+    document.getElementById('header-placeholder').innerHTML = data;
+});
+fetch('footer.html').then(res => res.text()).then(data => {
+    document.getElementById('footer-placeholder').innerHTML = data;
+});
+
+
+        // Toggle FAQ items
+        function toggleFAQ(element) {
+            element.classList.toggle('active');
+        }
+
+        // Filter by category
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Update active button
+                    categoryButtons.forEach(btn => btn.classList.remove('taqbit-primary', 'text-white', 'active'));
+                    categoryButtons.forEach(btn => btn.classList.add('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300'));
+                    
+                    this.classList.remove('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
+                    this.classList.add('taqbit-primary', 'text-white', 'active');
+                    
+                    // Filter FAQs
+                    const category = this.dataset.category;
+                    const faqSections = document.querySelectorAll('[data-category]');
+                    
+                    faqSections.forEach(section => {
+                        if (category === 'all' || section.dataset.category === category) {
+                            section.style.display = 'block';
+                        } else {
+                            section.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

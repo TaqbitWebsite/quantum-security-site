@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Latest updates in quantum computing, post-quantum cryptography, and cybersecurity from Taqbit Labs."/>
+    <meta name="keywords" content="quantum news, quantum computing, cybersecurity news, post-quantum cryptography"/>
+    <meta name="author" content="Taqbit Labs"/>
+    <meta property="og:title" content="Quantum Security News | Taqbit Labs"/>
+    <meta property="og:description" content="Stay updated with the latest in quantum computing and security."/>
+    <meta property="og:type" content="website"/>
+    <title>Taqbit Labs | Quantum Security News</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="quantum-pattern">
+
+<!-- Navigation -->
+<div id="header-placeholder"></div>
+
+<!-- Hero Section -->
+<section class="hero-gradient min-h-[50vh] flex items-center pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6 taqbit-gradient-text">
+            Quantum Security & Computing News
+        </h1>
+        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed">
+            Stay updated with the latest breakthroughs and updates in quantum technology and cybersecurity.
+        </p>
+    </div>
+</section>
+
+<!-- News Cards -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div id="news-container" class="grid md:grid-cols-2 gap-12 items-start"></div>
+    </div>
+</section>
+
+<!-- Footer -->
+<div id="footer-placeholder"></div>
+
+<script src="script.js"></script>
+
+<script>
+const apiKey = 'd90a84a7085b43855cc3b6dff1a08f46'; // Replace with your real key
+const query = 'quantum security OR quantum computing OR cryptography';
+const url = `https://gnews.io/api/v4/search?q=${encodeURIComponent(query)}&lang=en&max=10&token=${apiKey}`;
+
+fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        const container = document.getElementById('news-container');
+        data.articles.forEach(article => {
+            container.innerHTML += `
+                <div class="card-hover-effect bg-white border border-gray-200 rounded-xl p-8 shadow-lg transition hover:shadow-xl">
+                    <a href="${article.url}" target="_blank" class="block mb-4">
+                        <img src="${article.image || 'https://via.placeholder.com/600x300?text=Quantum+News'}" alt="${article.title}" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-2">${article.title}</h2>
+                    </a>
+                    <p class="text-gray-600 text-sm mb-3">${new Date(article.publishedAt).toLocaleDateString()}</p>
+                    <p class="text-gray-700 mb-4">${article.description || ''}</p>
+                    <a href="${article.url}" target="_blank" class="inline-flex items-center taqbit-text-primary font-medium">
+                        Read Full Article
+                        <svg class="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                        </svg>
+                    </a>
+                </div>`;
+        });
+    })
+    .catch(err => {
+        console.error(err);
+        document.getElementById('news-container').innerHTML = `<p class="text-red-500">Failed to load news. Please check the API key or try again later.</p>`;
+    });
+</script>
+
+</body>
+</html>
