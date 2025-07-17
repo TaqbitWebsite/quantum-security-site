@@ -180,14 +180,14 @@
         });
     </script>
 
-    <!-- Quotes Section -->
+<!-- Quotes Section -->
 <section class="py-8 relative bg-white overflow-hidden" style="
     background-image: linear-gradient(to right, #e5e7eb 1px, transparent 1px),
                       linear-gradient(to bottom, #e5e7eb 1px, transparent 1px);
     background-size: 40px 40px;
 ">
 
-    <div class="max-w-4xl mx-auto px-4 text-center py-8">
+    <div class="max-w-6xl mx-auto px-6 text-center py-8">
 
         <!-- Headings -->
         <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -219,95 +219,106 @@
 </section>
 
 
-
 <script>
-    const quotes = [
-        {
-            organization: "NSA",
-            logo: "https://upload.wikimedia.org/wikipedia/commons/8/8d/Seal_of_the_U.S._National_Security_Agency.svg",
-            text: "Post‑quantum cryptography is about proactively developing and building capabilities to secure critical information and systems from being compromised through the use of quantum computers.",
-            source: "Rob Joyce, NSA Cybersecurity Director"
-        },
-        {
-            organization: "Google Quantum AI",
-            logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/512px-Google_2015_logo.svg.png",
-            text: "The Willow chip is a major step on a journey to build a useful, large-scale quantum computer that can benefit society by advancing scientific discovery and tackling challenges.",
-            source: "Hartmut Neven, Google Quantum AI Lead"
-        },
-        {
-            organization: "IBM Quantum Safe",
-            logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/512px-IBM_logo.svg.png",
-            text: "IBM Quantum Safe provides the technology, services, and strategy needed to execute an end‑to‑end quantum‑safe transformation and build cryptographic agility.",
-            source: "IBM Quantum Safe Team"
-        },
-        {
-            organization: "CISA (Cybersecurity & Infrastructure Security Agency)",
-            logo: "https://upload.wikimedia.org/wikipedia/commons/1/1f/CISA_Logo.png",
-            text: "Organizations must begin preparing now for post-quantum cryptography to protect vital systems before quantum capabilities mature.",
-            source: "CISA Post-Quantum Cryptography Alert"
-        },
-        {
-            organization: "Deloitte Quantum Lab",
-            logo: "https://upload.wikimedia.org/wikipedia/commons/1/15/Deloitte_Logo.png",
-            text: "Quantum readiness is not a future task—it's a present-day imperative for businesses that want to stay resilient.",
-            source: "Deloitte Quantum Research"
-        },
-        {
-            organization: "NIST (National Institute of Standards and Technology)",
-            logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/NIST_logo.svg/1200px-NIST_logo.svg.png",
-            text: "NIST is leading the development of post-quantum cryptographic standards to secure our digital future against quantum threats.",
-            source: "NIST Official Statement"
+const quotes = [
+    {
+        organization: "NSA (National Security Agency)",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/8/8d/Seal_of_the_U.S._National_Security_Agency.svg",
+        text: "Post‑quantum cryptography is about proactively developing and building capabilities to secure critical information and systems from being compromised through the use of quantum computers.",
+        source: "Rob Joyce, NSA Cybersecurity Director"
+    },
+    {
+        organization: "CISA (Cybersecurity & Infrastructure Security Agency)",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/1/1f/CISA_Logo.png",
+        text: "Organizations must begin preparing now for post-quantum cryptography to protect vital systems before quantum capabilities mature.",
+        source: "CISA Post-Quantum Cryptography Alert"
+    },
+    {
+        organization: "Ministry of Electronics & IT (MeitY) - India",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Ministry_of_Electronics_and_Information_Technology.svg/2560px-Ministry_of_Electronics_and_Information_Technology.svg.png",
+        text: "India is building indigenous quantum technologies to safeguard national security and digital infrastructure from quantum threats.",
+        source: "Quantum Mission Statement, MeitY"
+    },
+    {
+        organization: "DRDO (Defence Research and Development Organisation)",
+        logo: "./assets/DRDO-logo.png",
+        text: "Quantum communications will form the backbone of future defense networks, ensuring absolute confidentiality in military operations.",
+        source: "DRDO Quantum Communication Program"
+    },
+    {
+        organization: "NIST (National Institute of Standards and Technology)",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/NIST_logo.svg/1200px-NIST_logo.svg.png",
+        text: "NIST is leading the development of post-quantum cryptographic standards to secure our digital future against quantum threats.",
+        source: "NIST Official Statement"
+    },
+    {
+        organization: "MIT Quantum Information Science",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/0/0c/MIT_logo.svg",
+        text: "Quantum security is not optional. As quantum computers evolve, so must our cryptographic defenses.",
+        source: "MIT Quantum Information Science Group"
+    },
+    {
+        organization: "IISc Bangalore - Quantum Technologies Initiative",
+        logo: "https://images.seeklogo.com/logo-png/48/2/indian-institute-of-science-logo-png_seeklogo-482012.png",
+        text: "India must invest in quantum-secure systems today to protect critical infrastructure tomorrow.",
+        source: "IISc Quantum Research Division"
+    }
+];
+
+let current = 0;
+const container = document.getElementById('quoteContainer');
+
+function renderSlides() {
+    container.innerHTML = '';
+    quotes.forEach((q, index) => {
+        const isMeity = q.organization.includes("MeitY");
+
+        const slide = document.createElement('div');
+        slide.className = 'absolute inset-0 flex flex-col justify-center items-center quote-slide ' + 
+                          (index === current ? 'active-slide' : 'inactive-slide');
+
+        slide.innerHTML = `
+            <div class="${isMeity ? 'max-w-6xl' : 'max-w-4xl'} w-full px-4 sm:px-8 md:px-12 flex flex-col items-center text-center mx-auto">
+                <img src="${q.logo}" alt="${q.organization}" 
+                     class="${isMeity ? 'w-60' : 'w-40'} h-auto object-contain mb-8 transition-transform duration-500 hover:scale-105">
+                <p class="text-2xl md:text-3xl font-semibold text-gray-800 mb-6 leading-relaxed">"${q.text}"</p>
+                <div class="font-bold text-blue-500 text-lg">${q.organization}</div>
+                <div class="text-sm text-gray-500 mt-2">${q.source}</div>
+            </div>
+        `;
+
+        container.appendChild(slide);
+    });
+}
+
+
+
+document.getElementById('nextBtn').addEventListener('click', () => {
+    current = (current + 1) % quotes.length;
+    animateSlides();
+});
+
+document.getElementById('prevBtn').addEventListener('click', () => {
+    current = (current - 1 + quotes.length) % quotes.length;
+    animateSlides();
+});
+
+function animateSlides() {
+    const slides = document.querySelectorAll('.quote-slide');
+    slides.forEach((slide, index) => {
+        if (index === current) {
+            gsap.to(slide, {opacity: 1, scale: 1, duration: 0.8, ease: 'power2.out'});
+            slide.classList.remove('inactive-slide');
+            slide.classList.add('active-slide');
+        } else {
+            gsap.to(slide, {opacity: 0, scale: 0.95, duration: 0.8, ease: 'power2.in'});
+            slide.classList.remove('active-slide');
+            slide.classList.add('inactive-slide');
         }
-    ];
-
-    let current = 0;
-
-    const container = document.getElementById('quoteContainer');
-
-    function renderSlides() {
-        container.innerHTML = '';
-        quotes.forEach((q, index) => {
-            const slide = document.createElement('div');
-            slide.className = 'absolute inset-0 flex flex-col justify-center items-center px-8 quote-slide ' + (index === current ? 'active-slide' : 'inactive-slide');
-
-            slide.innerHTML = `
-    <img src="${q.logo}" alt="${q.organization}" class="w-32 h-auto object-contain mb-6">
-
-    <p class="text-xl italic max-w-xl mb-4">"${q.text}"</p>
-    <div class="font-semibold text-blue-400">${q.organization}</div>
-    <div class="text-sm text-gray-400">${q.source}</div>
-`;
-
-            container.appendChild(slide);
-        });
-    }
-
-    document.getElementById('nextBtn').addEventListener('click', () => {
-        current = (current + 1) % quotes.length;
-        animateSlides();
     });
+}
 
-    document.getElementById('prevBtn').addEventListener('click', () => {
-        current = (current - 1 + quotes.length) % quotes.length;
-        animateSlides();
-    });
-
-    function animateSlides() {
-        const slides = document.querySelectorAll('.quote-slide');
-        slides.forEach((slide, index) => {
-            if (index === current) {
-                gsap.to(slide, {opacity: 1, scale: 1, duration: 0.8, ease: 'power2.out'});
-                slide.classList.remove('inactive-slide');
-                slide.classList.add('active-slide');
-            } else {
-                gsap.to(slide, {opacity: 0, scale: 0.9, duration: 0.8, ease: 'power2.in'});
-                slide.classList.remove('active-slide');
-                slide.classList.add('inactive-slide');
-            }
-        });
-    }
-
-    renderSlides();
+renderSlides();
 </script>
 
 
