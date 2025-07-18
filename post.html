@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taqbit Labs | Blog Post</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        .prose { max-width: 65ch; }
+        .prose img { border-radius: 0.5rem; margin: 2rem auto; }
+    </style>
+    <style>
+    #post-content h1 { font-size: 2.25rem; font-weight: 700; margin-top: 1.5rem; }
+    #post-content h2 { font-size: 1.875rem; font-weight: 600; margin-top: 1.2rem; }
+    #post-content h3 { font-size: 1.5rem; font-weight: 600; margin-top: 1rem; }
+    #post-content p { margin-top: 1rem; line-height: 1.75rem; }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <div id="header-placeholder"></div>
+
+    <main class="py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+            <article id="blog-post" class="bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="h-64 md:h-96 overflow-hidden">
+                    <img id="post-cover" class="w-full h-full object-cover" src="" alt="">
+                </div>
+
+                <div class="p-8">
+                    <div class="flex items-center mb-6">
+                        <span id="post-category" class="text-xs font-medium px-3 py-1 rounded-full taqbit-primary text-white"></span>
+                        <span id="post-date" class="text-xs text-gray-500 ml-3"></span>
+                    </div>
+                    <h1 id="post-title" class="text-3xl md:text-4xl font-bold text-gray-900 mb-4"></h1>
+                    <div class="flex items-center text-sm text-gray-500 mb-8">
+                        <span id="post-author"></span>
+                        <span class="mx-2">•</span>
+                        <span id="post-readtime"></span>
+                    </div>
+
+                    <div id="post-content" class="prose prose-lg mx-auto"></div>
+                </div>
+            </article>
+
+            <section class="mt-20">
+                <h2 class="text-2xl font-bold text-gray-900 mb-8">Related Articles</h2>
+                <div id="related-posts" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+            </section>
+        </div>
+    </main>
+
+    <section class="py-20 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0c1123]"></section>
+
+    <div id="footer-placeholder"></div>
+
+<script>
+    const API_BASE_URL = 'https://strapi-backend-63p4.onrender.com';
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const slug = urlParams.get('slug');
+
+    function renderInlines(children) {
+        return children.map(renderInline).join('');
+    }
+
+    function renderInline(node) {
+        if (node.type === 'text') return node.text;
+        if (node.type === 'link') {
+            return `<a href="${node.url}" class="text-blue-500 underline" target="_blank">${renderInlines(node.children)}</a>`;
+        }
+        return '';
+    }
+
+    function renderRichText(blocks) {
+        return blocks.map(renderBlock).join('');
+    }
+
+    function renderBlock(block) {
+        if (block.type === 'paragraph') {
+            return `<p>${renderInlines(block.children)}</p>`;
+        }
+        if (block.type === 'heading') {
+            return `<h${block.level}>${renderInlines(block.children)}</h${block.level}>`;
+        }
+        return '';
+    }
+
+    async function fetchPost() {
+        try {
+            const response = await fetch(`${API_BASE_URL}/api/blog-posts?filters[slug][$eq]=${slug}&populate=coverImage`);
+            const data = await response.json();
+            return data.data[0];
+        } catch (err) {
+            console.error("Error fetching post:", err);
+            return null;
+        }
+    }
+
+    async function fetchRelatedPosts(category) {
+        try {
+            const response = await fetch(`${API_BASE_URL}/api/blog-posts?filters[category][$eq]=${category}&populate=coverImage&sort=publishedAt:desc&pagination[limit]=3`);
+            const data = await response.json();
+            return data.data;
+        } catch (err) {
+            console.error("Error fetching related posts:", err);
+            return [];
+        }
+    }
+
+    async function renderPost() {
+        const post = await fetchPost();
+        if (!post) {
+            window.location.href = 'blogs.html';
+            return;
+        }
+
+        document.title = `${post.title} | Taqbit Labs`;
+
+        const coverImage = post.coverImage?.[0]?.url || '/assets/default-cover.jpg';
+        document.getElementById('post-cover').src = `${API_BASE_URL}${coverImage}`;
+        document.getElementById('post-cover').alt = post.title;
+
+        document.getElementById('post-title').textContent = post.title;
+        document.getElementById('post-category').textContent = post.category;
+        document.getElementById('post-date').textContent = new Date(post.publishedAt).toLocaleDateString();
+        document.getElementById('post-author').textContent = post.author;
+        document.getElementById('post-readtime').textContent = post.readTime ? `${post.readTime} min read` : '';
+
+        document.getElementById('post-content').innerHTML = renderRichText(post.content);
+
+        const relatedPosts = await fetchRelatedPosts(post.category);
+        const relatedContainer = document.getElementById('related-posts');
+
+        relatedPosts.forEach(item => {
+            if (item.slug !== slug) {
+                const relatedCover = item.coverImage?.[0]?.url || '/assets/default-related.jpg';
+                relatedContainer.innerHTML += `
+                    <div class="card-hover-effect bg-white rounded-lg overflow-hidden shadow-md">
+                        <div class="h-48 overflow-hidden">
+                            <img src="${API_BASE_URL}${relatedCover}" alt="${item.title}" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-gray-900 mb-2">${item.title}</h3>
+                            <a href="post.html?slug=${item.slug}" class="inline-flex items-center taqbit-text-primary text-sm font-medium mt-4">
+                                Read more
+                                <svg class="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>`;
+            }
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', renderPost);
+
+    document.addEventListener('DOMContentLoaded', () => {
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header-placeholder').innerHTML = data);
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer-placeholder').innerHTML = data);
+    });
+</script>
+
+</body>
+</html>

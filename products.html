@@ -90,7 +90,7 @@
                     <tbody class="bg-white divide-y divide-gray-200">
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Security Principle</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">No Cloning Theorem, Phase Tamper Detection</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">No Cloning Theorem, Tamper Detection</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Quantum Measurement Uncertainty</td>
                         </tr>
                         <tr class="bg-gray-50">
@@ -101,7 +101,7 @@
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Security Guarantee</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Composable security (An adversary with quantum knowledge and infinite <br> computational resources)</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">True randomness certified by quantum physics</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">True randomness certified as per industry standards</td>
                         </tr>
                         <tr class="bg-gray-50">
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Quantum Advantage</td>
@@ -113,96 +113,92 @@
             </div>
 
             <!-- Main Products Section -->
-            <div class="grid md:grid-cols-2 gap-12 items-start">
-                <!-- QKD Product -->
-                <div id="qkd" class="card-hover-effect bg-white border border-gray-200 rounded-xl p-8 shadow-lg">
-                    <div class="w-20 h-20 rounded-lg bg-opacity-20 flex items-center justify-center mb-6 taqbit-primary mx-auto">
-                        <i class="fas fa-shield-alt text-3xl text-white"></i>
+            <!-- Product Overview Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Our Quantum Security Product Line</h2>
+                <p class="text-gray-600 max-w-4xl mx-auto">
+                    Explore our range of quantum security solutions. Click on any product for detailed specifications and deployment options.
+                </p>
+            </div>
+            
+            <!-- Products Grid -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Product Card 1 -->
+                <div class="card-hover-effect bg-white border border-gray-200 rounded-xl overflow-hidden shadow-lg">
+                    <div class="h-48 overflow-hidden">
+                        <img src="./assets/qkd-system.avif" alt="QKD System" class="w-full h-full object-cover">
                     </div>
-                    <h2 class="text-2xl font-bold text-center text-gray-900 mb-4">Quantum Key Distribution Systems</h2>
-                    <div class="prose prose-lg text-gray-600 mb-6">
-                        <p>Our QKD systems implement the DPR, COW & DPS protocol with counter-measures and advanced modifications to enable ultra-secure key exchange with quantum information-theoretic security, detecting any eavesdropping attempts through quantum mechanical principles.</p>
-                        
-               
-                        
-                        
-                        <h3 class="text-xl font-semibold mt-6 text-gray-800">Technical Specifications:</h3>
-                        <div class="mt-4 grid grid-cols-2 gap-4">
-                            <div>
-                                <p class="font-medium">Key Rate:</p>
-                                <p class="text-sm text-gray-500">Up to 10 Mbps (TQ-1000)</p>
-                            </div>
-                            <div>
-                                <p class="font-medium">Wavelength:</p>
-                                <p class="text-sm text-gray-500">1550 nm (fiber), 780 nm (free-space)</p>
-                            </div>
-                            <div>
-                                <p class="font-medium">Security Standard:</p>
-                                <p class="text-sm text-gray-500">ETSI GS QKD 011, NIST IR 8309</p>
-                            </div>
-                            <div>
-                                <p class="font-medium">Operating Temp:</p>
-                                <p class="text-sm text-gray-500">0°C to 50°C</p>
-                            </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="text-xs font-medium px-2 py-1 rounded taqbit-primary text-white">QKD</span>
+                            <span class="text-xs text-gray-500 ml-2">Hardware</span>
                         </div>
-                    </div>
-                    <div class="text-center mt-8">
-                        <a href="./assets/QKD.pdf" class="inline-flex items-center taqbit-text-primary font-medium">
-                            Download QKD Technical Whitepaper
-                            <svg class="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                            </svg>
-                        </a>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Taqbit QKD</h3>
+                        <p class="text-gray-600 mb-4">Enterprise-grade quantum key distribution system with 1 Kbps key rate and 50km range.</p>
+                        <div class="flex justify-between items-center">
+                         
+                            <a href="products/qkd-1000.html" class="inline-flex items-center taqbit-text-primary font-medium text-sm">
+                                View Details
+                                <svg class="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- QRNG Product -->
-                <div id="qrng" class="card-hover-effect bg-white border border-gray-200 rounded-xl p-8 shadow-lg">
-                    <div class="w-20 h-20 rounded-lg bg-opacity-20 flex items-center justify-center mb-6 taqbit-secondary mx-auto">
-                        <i class="fas fa-random text-3xl text-white"></i>
+                <!-- Product Card 2 -->
+                <div class="card-hover-effect bg-white border border-gray-200 rounded-xl overflow-hidden shadow-lg">
+                    <div class="h-48 overflow-hidden">
+                        <img src="./assets/qrng-device.avif" alt="QRNG Device" class="w-full h-full object-cover">
                     </div>
-                    <h2 class="text-2xl font-bold text-center text-gray-900 mb-4">Quantum Random Number Generators</h2>
-                    <div class="prose prose-lg text-gray-600 mb-6">
-                        <p>Our QRNG devices generate true quantum randomness by measuring the quantum noise of vacuum fluctuations or photon detection events, providing certified entropy for cryptographic applications.</p>
-                        
-                    
-                       
-                        
-                        <h3 class="text-xl font-semibold mt-6 text-gray-800">Technical Specifications:</h3>
-                        <div class="mt-4 grid grid-cols-2 gap-4">
-                            <div>
-                                <p class="font-medium">Randomness Source:</p>
-                                <p class="text-sm text-gray-500">Vacuum fluctuations (TR-100/200), Photon detection (TR-300)</p>
-                            </div>
-                            <div>
-                                <p class="font-medium">Output Rate:</p>
-                                <p class="text-sm text-gray-500">Up to 1 Gbps (TR-300)</p>
-                            </div>
-                            <div>
-                                <p class="font-medium">Certification:</p>
-                                <p class="text-sm text-gray-500">NIST SP 800-90B compliant</p>
-                            </div>
-                            <div>
-                                <p class="font-medium">Interfaces:</p>
-                                <p class="text-sm text-gray-500">USB 3.0 & Ethernet </p>
-                            </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="text-xs font-medium px-2 py-1 rounded taqbit-secondary text-white">QRNG</span>
+                            <span class="text-xs text-gray-500 ml-2">Hardware</span>
                         </div>
-                        
-                      
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Taqbit QRNG</h3>
+                        <p class="text-gray-600 mb-4">1 Gbps quantum random number generator with NIST SP 800-90B certification.</p>
+                        <div class="flex justify-between items-center">
+                          
+                            <a href="products/qrng-2000.html" class="inline-flex items-center taqbit-text-secondary font-medium text-sm">
+                                View Details
+                                <svg class="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                        </div>
                     </div>
-                    <div class="text-center mt-8">
-                        <a href="#" class="inline-flex items-center taqbit-text-secondary font-medium">
-                            Request QRNG Evaluation Kit
-                            <svg class="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                            </svg>
-                        </a>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="card-hover-effect bg-white border border-gray-200 rounded-xl overflow-hidden shadow-lg">
+                    <div class="h-48 overflow-hidden">
+                        <img src="./assets/network-appliance.avif" alt="Network Appliance" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="text-xs font-medium px-2 py-1 rounded bg-purple-600 text-white">Hybrid</span>
+                            <span class="text-xs text-gray-500 ml-2">Appliance</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Taqbit QS</h3>
+                        <p class="text-gray-600 mb-4">Quantum-safe network appliance combining PQC algorithms with QKD key distribution.</p>
+                        <div class="flex justify-between items-center">
+                            
+                            <a href="products/qs-3000.html" class="inline-flex items-center text-purple-600 font-medium text-sm">
+                                View Details
+                                <svg class="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
   <!-- Quantum Product Features Section -->
 <section class="py-20 relative bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0c1123] overflow-hidden">
 
@@ -317,7 +313,7 @@
             </li>
             <li class="flex items-start">
                 <span class="taqbit-text-primary mr-2">•</span>
-                <span><strong>High-Speed Transmission:</strong> Continuous wave lasers and interferometric detection enable key generation rates in the multi-GHz range.</span>
+                <span><strong>High-Speed Transmission:</strong> Continuous wave lasers and interferometric detection enable key generation rates in the multi-KHz range.</span>
             </li>
             <li class="flex items-start">
                 <span class="taqbit-text-primary mr-2">•</span>
@@ -339,7 +335,7 @@
             <div>
                 <h3 class="text-2xl font-bold text-gray-900 mb-4">QRNG: True Quantum Randomness</h3>
                 <p class="text-gray-600 mb-6">
-                    Our Quantum Random Number Generators exploit the nature of fundamental unpredictability of quantumness. The TR-100 and TR-200 series measure quantum vacuum fluctuations - the zero-point energy present even in empty space. The TR-300 uses single-photon detection where the randomness comes from the quantum uncertainty in photon arrival times.
+                    Our Quantum Random Number Generators exploit the nature of fundamental unpredictability of quantumness.It uses single-photon detection where the randomness comes from the quantum uncertainty in photon arrival times.
                 </p>
                 <p class="text-gray-600 mb-6">
                     Unlike pseudo-random number generators (PRNGs) or hardware random number generators (HRNGs) that rely on classical noise sources, our QRNGs provide randomness that is certified by quantum physics to be fundamentally unpredictable.
@@ -417,7 +413,7 @@
                             <i class="fas fa-cloud text-2xl taqbit-text-secondary"></i>
                         </div>
                         <h3 class="text-xl font-bold text-gray-900 mb-3">Cloud Service</h3>
-                        <p class="text-gray-600 mb-6">Quantum-safe security as a service with our cloud-hosted QKD and QRNG solutions, available through major cloud providers.</p>
+                        <p class="text-gray-600 mb-6">Quantum-safe security as a service with our cloud-hosted QRNG solutions, available through major cloud providers.</p>
                         <ul class="space-y-3 mb-8">
                             <li class="flex items-start">
                                 <span class="taqbit-text-secondary mr-2">•</span>
